@@ -8,7 +8,11 @@ class SitesController < ApplicationController
   end
 
   def new
-    @article = Site.new
+    @site = Site.new
+  end
+
+  def edit
+    @site = Site.find(params[:id])
   end
 
   def create
@@ -19,6 +23,17 @@ class SitesController < ApplicationController
     else
       flash[:Error] = "Please complete all fields"
       render 'new'
+    end
+  end
+
+  def update
+    @site = Site.find(params[:id])
+
+    if @site.update(site_params)
+      redirect_to @site
+    else
+      flash[:Error] = "Fail"
+      render 'edit'
     end
   end
 

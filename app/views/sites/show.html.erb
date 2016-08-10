@@ -1,3 +1,4 @@
+<div class="jumbotron">
 <p>
   <strong>Name:</strong>
   <%= @site.name %>
@@ -7,5 +8,6 @@
   <strong>URL:</strong>
   <%= @site.url %>
 </p>
-
-<%= link_to 'View all sites', sites_path %>
+</div>
+<p><%= link_to 'Edit', edit_site_path %></p>
+<p><%= link_to 'Back to all sites', sites_path %></p>

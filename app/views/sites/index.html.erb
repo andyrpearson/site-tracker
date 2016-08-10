@@ -1,8 +1,6 @@
 <h1>Listing sites</h1>
 
-<%= link_to 'Create new site', new_site_path %>
-
-<table>
+<table class="table">
   <tr>
     <th>Name</th>
     <th>URL</th>
@@ -13,6 +11,7 @@
     <td><%= site.name %></td>
     <td><%= site.url %></td>
     <td><%= link_to 'Show', site_path(site) %></td>
+    <td><%= link_to 'Edit', edit_site_path(site) %></td>
   </tr>
   <% end %>
 </table>
