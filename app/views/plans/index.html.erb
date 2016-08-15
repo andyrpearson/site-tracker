@@ -1,0 +1,19 @@
+<h1>All Plans</h1>
+
+<table class="table">
+  <tr>
+    <th>Name</th>
+    <th>Price</th>
+  </tr>
+
+  <% @plans.each do |plan| %>
+  <tr>
+    <td><%= plan.name %></td>
+    <td><%= plan.price %></td>
+    <td><%= link_to 'Show', plan_path(plan) %></td>
+    <td><%= link_to 'Edit', edit_plan_path(plan) %></td>
+  </tr>
+  <% end %>
+</table>
+
+<%= link_to 'New Plan', new_plan_path %>

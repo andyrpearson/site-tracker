@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   resources :sites
+  resources :plans
 
   root 'pages#home'
   get 'about' => 'pages#about'
