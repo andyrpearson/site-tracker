@@ -1,5 +1,5 @@
 class Site < ApplicationRecord
-  has_one :plan
+  belongs_to :plan
   validates :name, presence: true
 
   def self.search(search)

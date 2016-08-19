@@ -9,6 +9,11 @@
   <%= @site.url %>
 </p>
 
+<p>
+  <strong>Plan:</strong>
+  <%= @site.plan.name %>
+</p>
+
 </div>
 <p><%= link_to 'Edit', edit_site_path %></p>
 <p><%= link_to 'Delete', site_path, method: :delete, data: { confirm: 'Are you sure?' } %>
