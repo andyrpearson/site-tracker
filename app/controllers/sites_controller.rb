@@ -47,6 +47,10 @@ class SitesController < ApplicationController
     redirect_to sites_path
   end
 
+  def subscription_value
+    self.plan.price
+  end
+
   private
   def site_params
     params.require(:site).permit(:name, :url, :plan_id)
