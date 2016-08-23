@@ -34,6 +34,12 @@ class PlansController < ApplicationController
     end
   end
 
+  def destroy
+    @plan = Plan.find(params[:id]).destroy
+    flash[:success] = "Plan deleted"
+    redirect_to action: "index"
+  end
+
   def show
     @plan = Plan.find(params[:id])
   end
