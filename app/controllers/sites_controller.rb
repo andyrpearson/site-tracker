@@ -43,12 +43,7 @@ class SitesController < ApplicationController
   def destroy
     @site = Site.find(params[:id])
     @site.destroy
-
     redirect_to sites_path
-  end
-
-  def subscription_value
-    self.plan.price
   end
 
   private

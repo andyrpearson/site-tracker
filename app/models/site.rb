@@ -6,4 +6,5 @@ class Site < ApplicationRecord
     where("name ILIKE ?", "%#{search}%")
     where("url ILIKE ?", "%#{search}%")
   end
+
 end
