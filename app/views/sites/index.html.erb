@@ -2,9 +2,9 @@
 
 <table class="table">
   <tr>
-    <th>Name</th>
-    <th>URL</th>
-    <th>Plan</th>
+    <th><%= sortable "name" %></th>
+    <th><%= sortable "url" %></th>
+    <th><%= sortable "plans.name", "Plan" %></th>
   </tr>
 
   <% monthly_revenue = 0 %>

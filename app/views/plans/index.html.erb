@@ -4,12 +4,14 @@
   <tr>
     <th>Name</th>
     <th>Price</th>
+    <th>Sites</th>
   </tr>
 
   <% @plans.each do |plan| %>
   <tr>
     <td><%= plan.name %></td>
     <td><%= plan.price %></td>
+    <td><%= plan.sites.count %></td>
     <td><%= link_to 'Show', plan_path(plan) %></td>
     <td><%= link_to 'Edit', edit_plan_path(plan) %></td>
   </tr>

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :sites
   resources :plans
+  resources :organisations
 
   root 'pages#home'
   get 'about' => 'pages#about'

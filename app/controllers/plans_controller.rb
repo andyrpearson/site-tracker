@@ -1,7 +1,7 @@
 class PlansController < ApplicationController
 
   def index
-    @plans = Plan.all
+    @plans = Plan.all.order('price ASC')
   end
 
   def new
