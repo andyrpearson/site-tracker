@@ -8,22 +8,40 @@ class OrganisationsController < ApplicationController
   end
 
   def new
+    @organisation = Organisation.new
   end
 
   def edit
+    @organisation = Organisation.find(params[:id])
   end
 
   def create
     @organisation = Organisation.new(organisation_params)
 
-    @organisation.save
-    redirect_to @organisation
+    if @organisation.save
+      redirect_to @organisation
+    else
+      flash[:Error] = "Please complete all fields"
+      render 'new'
+    end
   end
 
   def update
+      @organisation = Organisation.find(params[:id])
+
+      if @organisation.update(organsiation_params)
+        redirect_to @organisation
+      else
+        flash[:Error] = "Fail"
+        render 'edit'
+      end
   end
 
   def destroy
+      @organisation = Organisation.find(params[:id])
+      @organisation.destroy
+      flash[:success] = "Organisation deleted"
+      redirect_to_organisations_path
   end
 
   private

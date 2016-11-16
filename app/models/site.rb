@@ -1,4 +1,5 @@
 class Site < ApplicationRecord
+  belongs_to :organisation
   belongs_to :plan
   validates :name, presence: true
 

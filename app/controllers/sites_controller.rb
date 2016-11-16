@@ -49,7 +49,7 @@ class SitesController < ApplicationController
 
   private
   def site_params
-    params.require(:site).permit(:name, :url, :plan_id)
+    params.require(:site).permit(:name, :url, :plan_id, :organisation_id)
   end
 
   def sort_column

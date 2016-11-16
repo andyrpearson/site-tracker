@@ -1,3 +1,4 @@
 class Organisation < ApplicationRecord
-  validates :title, presence: true, length: { minimum: 2}
+  has_many :sites
+  validates :name, presence: true, length: { minimum: 2}
 end

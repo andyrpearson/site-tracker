@@ -4,6 +4,7 @@
   <tr>
     <th><%= sortable "name" %></th>
     <th><%= sortable "url" %></th>
+    <th><%= sortable "organisation" %></th>
     <th><%= sortable "plans.name", "Plan" %></th>
   </tr>
 
@@ -12,6 +13,7 @@
   <tr>
     <td><%= site.name %></td>
     <td><%= site.url %></td>
+    <td><%= site.organisation.name %></td>
     <td><%= site.plan.name %></td>
     <td><%= link_to 'Show', site_path(site) %></td>
     <td><%= link_to 'Edit', edit_site_path(site) %></td>
