@@ -3,15 +3,17 @@
   <strong>Name:</strong>
   <%= @site.name %>
 </p>
-
 <p>
   <strong>URL:</strong>
-  <%= @site.url %>
+  <%= link_to @site.url, URI::HTTP.build(host: @site.url).to_s %>
 </p>
-
 <p>
   <strong>Plan:</strong>
-  <%= @site.plan.name %>
+  <%= link_to @site.plan.name, plan_path %>
+</p>
+<p>
+  <strong>Organisation:</strong>
+  <%= link_to @site.organisation.name, organisation_path %>
 </p>
 
 </div>

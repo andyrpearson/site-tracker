@@ -4,5 +4,26 @@
   <strong>Name:</strong>
   <%= @organisation.name %>
 </p>
+<p>
+  <%= link_to 'Add new site', new_site_path %>
+</p>
+<table class="table">
+  <tr>
+    <th>Name</th>
+    <th>URL</th>
+    <th>Plan</th>
+  </tr>
 
+  <% monthly_revenue = 0 %>
+  <% @organisation.sites.each do |site| %>
+  <tr>
+    <td><%= site.name %></td>
+    <td><%= site.url %></td>
+    <td><%= link_to 'Show', site_path(site) %></td>
+    <td><%= link_to 'Edit', edit_site_path(site) %></td>
+  </tr>
+  <% monthly_revenue += site.plan.price %>
+  <% end %>
+</table>
+Monthly recurring revenue:<strong> £<%= monthly_revenue %></strong>
 </div>

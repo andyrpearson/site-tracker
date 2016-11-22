@@ -24,7 +24,7 @@
 
   <div class="form-group">
     <%= f.label :cms %><br>
-    <%= f.text_field :cms, class: "form-control" %>
+    <%= f.select :cms, ['Drupal 7', 'Drupal 6', 'Wordpress', 'No CMS'], class: "form-control" %>
   </div>
 
   <div class="form-group">
@@ -35,6 +35,7 @@
   <div class="form-group">
     <%= f.label :organisation_id %><br>
     <%= f.collection_select :organisation_id, Organisation.all, :id, :name, class: "form-control" %>
+    <%= link_to 'Add organisation', new_organisation_path %>
   </div>
 
   <div class="form-group">
