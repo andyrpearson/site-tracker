@@ -1,0 +1,10 @@
+
+
+
+<%= form_for([@site, @site.notes.build]) do |f| %>
+  <div class="form-field">
+    <%= f.label :body %><br>
+    <%= f.text_area :body, class: "form-control" %> <br>
+    <%= f.submit class: "btn btn-primary" %>
+  </div>
+<% end %>

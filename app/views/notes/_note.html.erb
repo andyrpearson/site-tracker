@@ -1,0 +1,13 @@
+<p>
+  <b>Created:</b>
+  <%= note.created_at %>
+</p>
+
+<p>
+  <b>Note:</b>
+  <%= note.body %>
+</p>
+
+<p>
+  <%= link_to "delete", [note.site, note], data: {confirm: "Are you sure?"}, method: :delete %>
+</p>
