@@ -15,8 +15,6 @@
 </div>
 
 <div class="container"
-<h2>Add a note:</h2>
-<%= render "notes/form" %>
 
 <p>
 <b>Tags</b>
@@ -24,7 +22,9 @@
 </p>
 
 <h2>Notes</h2>
-  <div class='jumbotron'>
     <%= render @site.notes %>
-  </div>
+
+  <h2>Add a note:</h2>
+  <%= render "notes/form" %>
+
 </div>
