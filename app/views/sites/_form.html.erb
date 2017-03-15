@@ -1,3 +1,4 @@
+<% @site.tags.build %>
 <%= form_for @site do |f| %>
 
   <% if @site.errors.any? %>
@@ -14,10 +15,11 @@
      </div>
    <% end %>
 
-  <div class="form-group">
-    <%= f.label :name %><br>
-    <%= f.text_field :name, class: "form-control" %>
-  </div>
+   <div class="form-group">
+     <%= f.label :organisation_id %><br>
+     <%= f.collection_select :organisation_id, Organisation.all, :id, :name, class: "form-control" %>
+     <%= link_to 'Add organisation', new_organisation_path %>
+   </div>
 
   <div class="form-group">
     <%= f.label :url %><br>
@@ -34,11 +36,8 @@
     <%= f.collection_select :plan_id, Plan.all, :id, :name, class: "form-control" %>
   </div>
 
-  <div class="form-group">
-    <%= f.label :organisation_id %><br>
-    <%= f.collection_select :organisation_id, Organisation.all, :id, :name, class: "form-control" %>
-    <%= link_to 'Add organisation', new_organisation_path %>
-  </div>
+  <h2>Tags</h2>
+  <%= render  :partial => 'tags/form', :locals => {:form => f} %>
 
   <div class="form-group">
     <%= f.submit class: "btn btn-primary" %>

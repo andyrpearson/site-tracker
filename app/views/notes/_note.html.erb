@@ -9,5 +9,6 @@
 </p>
 
 <p>
+  <%= link_to "show", [note.site, note] %>
   <%= link_to "delete", [note.site, note], data: {confirm: "Are you sure?"}, method: :delete %>
 </p>

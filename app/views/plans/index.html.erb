@@ -2,20 +2,17 @@
 
 <table class="table">
   <tr>
-    <th>Name</th>
+    <th>Plan</th>
     <th>Price</th>
-    <th>Sites</th>
   </tr>
 
-  <% @plans.each do |plan| %>
+  <% @plans.each do |p| %>
   <tr>
-    <td><%= plan.name %></td>
-    <td><%= plan.price %></td>
-    <td><%= plan.sites.count %></td>
-    <td><%= link_to 'Show', plan_path(plan) %></td>
-    <td><%= link_to 'Edit', edit_plan_path(plan) %></td>
+    <td><%= link_to p.name, plan_path(p) %> (<%= p.sites.count %>)</td>
+    <td><%= p.price %></td>
+    <td><%= link_to 'Edit', edit_plan_path(p) %></td>
   </tr>
   <% end %>
 </table>
 
-<%= link_to 'New Plan', new_plan_path %>
+<%= link_to 'New Plan', new_plan_path, class: "btn btn-primary"  %>

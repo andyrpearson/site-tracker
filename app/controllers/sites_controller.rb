@@ -1,7 +1,6 @@
 class SitesController < ApplicationController
-  helper_method :sort_column, :sort_direction
   def index
-    @sites = Site.all.includes(:plan).order(sort_column + " " + sort_direction)
+    @sites = Site.all
     if params[:search]
       @sites = Site.search(params[:search]).order("created_at DESC")
     end
@@ -52,11 +51,4 @@ class SitesController < ApplicationController
     params.require(:site).permit(:name, :url, :plan_id, :organisation_id)
   end
 
-  def sort_column
-    Site.column_names.include?(params[:sort]) ? params[:sort] : "name"
-  end
-
-  def  sort_direction
-    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
-  end
 end

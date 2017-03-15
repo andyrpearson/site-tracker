@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :plans
   resources :organisations
 
-  root 'pages#home'
+  root 'sites#index'
   get 'about' => 'pages#about'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

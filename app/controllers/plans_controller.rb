@@ -1,7 +1,7 @@
 class PlansController < ApplicationController
 
   def index
-    @plans = Plan.all.order('price ASC')
+    @plans = Plan.all
   end
 
   def new
@@ -38,7 +38,7 @@ class PlansController < ApplicationController
     @plan = Plan.find(params[:id])
     @plan.destroy
     flash[:success] = "Plan deleted"
-    redirect_to_plans_path
+    redirect_to plans_path
   end
 
   def show
@@ -48,5 +48,9 @@ class PlansController < ApplicationController
   private
   def plan_params
     params.require(:plan).permit(:name, :price)
+  end
+
+  def sort_column
+    Plan.column_names.include?(params[:sort]) ? params[:sort] : "name"
   end
 end

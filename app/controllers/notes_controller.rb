@@ -1,5 +1,9 @@
 class NotesController < ApplicationController
 
+  def show
+    @note = Note.find(params[:id])
+  end
+
   def create
     @site = Site.find(params[:site_id])
     @note = @site.notes.create(note_params)

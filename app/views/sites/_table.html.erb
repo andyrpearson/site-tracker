@@ -1,31 +1,18 @@
-<div class="jumbotron">
-<p>
-  <strong>Plan:</strong>
-  <%= @plan.name %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  £<%= @plan.price %>
-</p>
-
 <table class="table">
   <tr>
     <th>URL</th>
     <th>Organisation</th>
+    <th>Plan</th>
   </tr>
 
   <% monthly_revenue = 0 %>
-  <% @plan.sites.each do |site| %>
+  <% @sites.each do |site| %>
   <tr>
     <td><%= link_to site.url, site_path(site) %></td>
     <td><%= site.organisation.name %></td>
+    <td><%= site.plan.name %></td>
     <td><%= link_to 'Edit', edit_site_path(site) %></td>
   </tr>
   <% monthly_revenue += site.plan.price %>
   <% end %>
 </table>
-
-<p><strong>Monthly revenue: </strong>£<%= monthly_revenue %></p>
-<p><%= link_to 'Edit Plan', edit_plan_path %></p>
-</div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161130174157) do
+ActiveRecord::Schema.define(version: 20170314160901) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,7 +37,6 @@ ActiveRecord::Schema.define(version: 20161130174157) do
   end
 
   create_table "sites", force: :cascade do |t|
-    t.string   "name"
     t.string   "url"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
@@ -46,6 +45,14 @@ ActiveRecord::Schema.define(version: 20161130174157) do
     t.integer  "organisation_id"
     t.index ["organisation_id"], name: "index_sites_on_organisation_id", using: :btree
     t.index ["plan_id"], name: "index_sites_on_plan_id", using: :btree
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "site_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["site_id"], name: "index_tags_on_site_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -67,4 +74,5 @@ ActiveRecord::Schema.define(version: 20161130174157) do
 
   add_foreign_key "notes", "sites"
   add_foreign_key "sites", "plans"
+  add_foreign_key "tags", "sites"
 end

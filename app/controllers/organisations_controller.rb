@@ -29,7 +29,7 @@ class OrganisationsController < ApplicationController
   def update
       @organisation = Organisation.find(params[:id])
 
-      if @organisation.update(organsiation_params)
+      if @organisation.update(organisation_params)
         redirect_to @organisation
       else
         flash[:Error] = "Fail"
@@ -41,7 +41,7 @@ class OrganisationsController < ApplicationController
       @organisation = Organisation.find(params[:id])
       @organisation.destroy
       flash[:success] = "Organisation deleted"
-      redirect_to_organisations_path
+      redirect_to organisations_path
   end
 
   private
