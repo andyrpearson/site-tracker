@@ -1,22 +1,31 @@
 
 <h1><%= @organisation.name %></h1>
 
-<p><%= link_to 'Edit organisation', edit_organisation_path %></p>
+<div class="jumbotron">
+  <p><%= link_to 'Edit organisation', edit_organisation_path %></p>
+</div>
 
-<table class="table">
-  <tr>
-    <th>URL</th>
-    <th>Plan</th>
-    <th>Price</th>
-  </tr>
-  <% @organisation.sites.each do |site| %>
-  <tr>
-    <td><%= link_to site.url, site_path(site) %></td>
-    <td><%= site.plan.name %></td>
-    <td><%= site.plan.price %></td>
-    <td><%= link_to 'Show', site_path(site) %></td>
-    <td><%= link_to 'Edit', edit_site_path(site) %></td>
-  </tr>
-  <% end %>
-</table>
+<div class="panel panel-default">
+  <div class="panel-heading">Sites</div>
+  <table class="table">
+    <tr>
+      <th>URL</th>
+      <th>Plan</th>
+      <th>Price</th>
+    </tr>
+    <% monthly_revenue = 0 %>
+    <% @organisation.sites.each do |site| %>
+    <tr>
+      <td><%= link_to site.url, site_path(site) %></td>
+      <td><%= site.plan.name %></td>
+      <td><%= site.plan.price %></td>
+      <td><%= link_to 'Show', site_path(site) %></td>
+      <td><%= link_to 'Edit', edit_site_path(site) %></td>
+    </tr>
+    <% monthly_revenue += site.plan.price %>
+    <% end %>
+  </table>
+</div>
+<p><strong>Monthly revenue: </strong>£<%= monthly_revenue %></p>
+
 <p><%= link_to 'New Site', new_site_path, class: "btn btn-primary" %></p>

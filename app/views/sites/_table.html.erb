@@ -1,18 +1,23 @@
-<table class="table">
-  <tr>
-    <th>URL</th>
-    <th>Organisation</th>
-    <th>Plan</th>
-  </tr>
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Sites</div>
 
-  <% monthly_revenue = 0 %>
-  <% @sites.each do |site| %>
-  <tr>
-    <td><%= link_to site.url, site_path(site) %></td>
-    <td><%= site.organisation.name %></td>
-    <td><%= site.plan.name %></td>
-    <td><%= link_to 'Edit', edit_site_path(site) %></td>
-  </tr>
-  <% monthly_revenue += site.plan.price %>
-  <% end %>
-</table>
+  <table class="table">
+    <tr>
+      <th>URL</th>
+      <th>Organisation</th>
+      <th>Plan</th>
+    </tr>
+
+    <% monthly_revenue = 0 %>
+    <% @sites.each do |site| %>
+    <tr>
+      <td><%= link_to site.url, site_path(site) %></td>
+      <td><%= site.organisation.name %></td>
+      <td><%= site.plan.name %></td>
+      <td><%= link_to 'Edit', edit_site_path(site) %></td>
+    </tr>
+    <% monthly_revenue += site.plan.price %>
+    <% end %>
+  </table>
+</div>

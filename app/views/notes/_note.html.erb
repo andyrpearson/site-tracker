@@ -1,16 +1,9 @@
-<div class='jumbotron'>
-  <p>
-    <b>Created:</b>
-    <%= note.created_at %>
-  </p>
-
-  <p>
-    <b>Note:</b>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <%= note.created_at.strftime("%d/%m/%Y")%>
+  </div>
+  <div class="panel-body">
     <%= note.body %>
-  </p>
+    <p> <%= link_to "delete", [note.site, note], data: {confirm: "Are you sure?"}, method: :delete %> </p>
+  </div>
 </div>
-
-<p>
-  <%= link_to "show", [note.site, note] %>
-  <%= link_to "delete", [note.site, note], data: {confirm: "Are you sure?"}, method: :delete %>
-</p>

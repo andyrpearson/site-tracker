@@ -1,30 +1,24 @@
-<h1>
-  <%= link_to @site.url, URI::HTTP.build(host: @site.url).to_s %>
+<h1> Sites > <%= link_to @site.url, URI::HTTP.build(host: @site.url).to_s %>
 </h1>
+
 <div class="jumbotron">
-<p>
-  <strong>Plan:</strong>
-  <%= link_to @site.plan.name, plan_path %>
-  (£<%= @site.plan.price %>)
-</p>
-<p>
-  <strong>Organisation:</strong>
-  <%= link_to @site.organisation.name, organisation_path %>
-</p>
-<p><%= link_to 'Edit Site', edit_site_path %></p>
+  <p>
+    <strong>Plan:</strong>
+    <%= link_to @site.plan.name, plan_path %>
+    (£<%= @site.plan.price %>)
+  </p>
+  <p>
+    <strong>Organisation:</strong>
+    <%= link_to @site.organisation.name, organisation_path %>
+  </p>
+  <p><%= link_to 'Edit', edit_site_path %></p>
+
+  <p>
+  <b>Tags: </b><%= @site.tags.map { |t| t.name }.join(", ") %>
+  </p>
 </div>
 
-<div class="container"
-
-<p>
-<b>Tags</b>
-<%= @site.tags.map { |t| t.name }.join(", ") %>
-</p>
-
-<h2>Notes</h2>
+<% if @site.notes.count > 0 %>
     <%= render @site.notes %>
-
-  <h2>Add a note:</h2>
+  <% end %>
   <%= render "notes/form" %>
-
-</div>

@@ -1,12 +1,17 @@
 <h1>Organisations</h1>
 
-<table class="table">
-  <% @organisations.each do |org| %>
-  <tr>
-    <td><%= link_to org.name, organisation_path(org) %> (<%=org.sites.count%>)</td>
-    <td><%= link_to 'Edit', edit_organisation_path(org) %></td>
-  </tr>
-  <% end %>
-</table>
+<div class="panel panel-default">
+  <table class="table">
+    <tr>
+      <th>Organisation</th>
+    </tr>
+    <tr>
+    <% @organisations.each do |org| %>
+      <td><%= link_to org.name, organisation_path(org) %> (<%=org.sites.count%>)</td>
+      <td><%= link_to 'Edit', edit_organisation_path(org) %></td>
+    </tr>
+    <% end %>
+  </table>
+</div>
 
 <%= link_to 'New Organisation', new_organisation_path, class: "btn btn-primary"  %>

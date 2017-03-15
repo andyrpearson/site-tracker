@@ -1,14 +1,32 @@
 <h1>Sites</h1>
 
-<div class=jumbotron>
-
-      <% monthly_revenue = 0 %>
-      <% @sites.each do |site| %>
-      <% monthly_revenue += site.plan.price %>
-      <% end %>
-      <p>You have <strong> <%= Site.count %> </strong> sites generating <strong>£<%= monthly_revenue %></strong> in monthly recurring revenue.
+<div class="jumbotron">
+  <% monthly_revenue = 0 %>
+  <% @sites.each do |site| %>
+  <% monthly_revenue += site.plan.price %>
+  <% end %>
+  <p>You have <strong> <%= Site.count %> </strong> sites generating <strong>£<%= monthly_revenue %></strong> in monthly recurring revenue.</p>
 </div>
 
-<%= render 'table' %>
+<div class="panel panel-default">
+  <table class="table">
+    <tr>
+      <th>URL</th>
+      <th>Organisation</th>
+      <th>Plan</th>
+    </tr>
+
+    <% monthly_revenue = 0 %>
+    <% @sites.each do |site| %>
+    <tr>
+      <td><%= link_to site.url, site_path(site) %></td>
+      <td><%= site.organisation.name %></td>
+      <td><%= site.plan.name %></td>
+      <td><%= link_to 'Edit', edit_site_path(site) %></td>
+    </tr>
+    <% monthly_revenue += site.plan.price %>
+    <% end %>
+  </table>
+</div>
 
 <%= link_to 'New Site', new_site_path, class: "btn btn-primary" %>
